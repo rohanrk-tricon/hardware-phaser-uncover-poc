@@ -1,0 +1,7 @@
+body{
+  width: 100%;
+  height: 100%;
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+  margin: 0%;
+}

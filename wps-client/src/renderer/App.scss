@@ -1,0 +1,78 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+body {
+  position: relative;
+  color: black;
+  height: 100vh;
+  font-family: cursive;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  text-align: center;
+  margin-top: 32px;
+}
+
+body{
+  width: 100%;
+  height: 100%;
+  /* overflow-x: auto;
+  overflow-y: auto; */
+  margin: 0%;
+}
+
+.homeButton{
+  font-size: 24px;
+  color: #009900;
+  font-family: cursive;
+  font-weight: 900;
+  margin-top: 24px;
+}
+
+.pageHeader{
+  font-family: cursive;
+  font-weight: 600;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
