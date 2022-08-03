@@ -1,11 +1,11 @@
 {
-  "name": "wps-dashboard",
-  "version": "4.9.0",
-  "description": "wps-dashboard",
+  "name": "wps-uncover-dashboard",
+  "version": "4.9.1",
+  "description": "WPS Uncover Dashboard",
   "license": "MIT",
   "author": {
-    "name": "TriconHatch",
-    "email": "TriconHatch@gmail.com",
+    "name": "TriconHatchAug02",
+    "email": "triconhatchaug02@gmail.com",
     "url": ""
   },
   "main": "./dist/main/main.js",

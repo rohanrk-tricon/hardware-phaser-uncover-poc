@@ -1,5 +1,5 @@
 {
-  "description": "WPS Dashboard",
+  "description": "WPSDashboard",
   "keywords": [
     "electron",
     "react",
@@ -16,8 +16,8 @@
   },
   "license": "MIT",
   "author": {
-    "name": "Hatch Tricon",
-    "email": "hatchtricon@gmail.com",
+    "name": "Hatch Tricon Aug02",
+    "email": "hatchtriconaug02@gmail.com",
     "url": ""
   },
   "contributors": [

@@ -91,18 +91,19 @@ export default class UncoverGameWithScalingScene extends Phaser.Scene{
         
         // gameState.scaleRatio = window.devicePixelRatio / 3;
         // this.input.addPointer(50);
-
+       
         // 50 simultaneous touches.
-        this.input._drag = { 0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: [], 11: [], 12: [], 13: [], 14: [], 15: [], 16: [], 17: [], 18: [], 19: [], 20: [], 21: [], 22: [], 23: [], 24: [], 25: [], 26: [], 27: [], 28: [], 29: [], 30: [], 31: [], 32: [], };
 
-        const requiredPointers = 50
-        for(var i = 0; i < requiredPointers; i++){
+        const requiredPointers = 50;
+        for(let i = 0; i < requiredPointers; i++){
             const id = this.input.manager.pointers.length;
             const pointer = new Pointer(this.input.manager, id);
             pointer.smoothFactor = this.input.manager.config.inputSmoothFactor;
             this.input.manager.pointers.push(pointer);
             this.input.manager.pointersTotal++;
         }
+
+        this.updatePointers(this);
 
         gameState.pipelineInstanceOutline = this.plugins.get('rexOutlinePipeline');
         gameState.pipelineInstanceShadow = this.plugins.get('rexDropShadowPipeline');
@@ -119,12 +120,12 @@ export default class UncoverGameWithScalingScene extends Phaser.Scene{
             scaleValueObjs = 0.4;
             scaleValueGoalStone = 0.7;
             scaleValue1 = 0.3;
-            scaleValue2 = 0.2;  
+            scaleValue2 = 0.2;   
         } else {
-            scaleValueObjs = 0.4;
-            scaleValueGoalStone = 0.5;
-            scaleValue1 = 0.3;
-            scaleValue2 = 0.25;
+            scaleValueObjs = 0.3;
+            scaleValueGoalStone = 0.4;
+            scaleValue1 = 0.2;
+            scaleValue2 = 0.15;
         }
 
         // else if(windowWidth > 1500){
@@ -178,9 +179,10 @@ export default class UncoverGameWithScalingScene extends Phaser.Scene{
 
         coverSound =this.sound.add("coverSound");
         //coverSound.play();
-       bgm =this.sound.add("bgm");
+        bgm =this.sound.add("bgm");
         bgm.play();
         bgm.setVolume(.3);
+        bgm.loop = true;
         let one= this.sound.add("one");
         one.play();
         let two= this.sound.add("two");
@@ -245,6 +247,7 @@ export default class UncoverGameWithScalingScene extends Phaser.Scene{
                 let cover = this.add.image(0,0, "cover"+i).setScale(scaleValueLeafs).setInteractive({draggable: true}).setRandomPosition(30, 30, windowWidth - 100, windowHeight - 100).setRotation(Math.random() * 10).setDepth(depthValueLeafs);
                 this.checkGoalOverlapping(cover);
                 this.addEvents(cover);
+                cover.on("pointerdown",this.pickCovers);
             }
         }
         
@@ -256,6 +259,64 @@ export default class UncoverGameWithScalingScene extends Phaser.Scene{
         multitouch.on("pointerdown",this.multitouchEvent);
         multitouch.on('pointerup', this.multitouchUpEvent); 
 
+    }
+
+    pickCovers(){
+        coverSound.play(); 
+    }
+
+    updatePointers(){
+        gameState.that.input._drag = { 0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: [], 11: [],
+                                        12: [], 13: [], 14: [], 15: [], 16: [], 17: [], 18: [], 19: [], 20: [], 21: [], 22: [],
+                                        23: [], 24: [], 25: [], 26: [], 27: [], 28: [], 29: [], 30: [], 31: [], 32: [], 33: [],
+                                        34: [], 35: [], 36: [], 37: [], 38: [], 39: [], 40: [], 41: [], 42: [], 43: [], 44: [],
+                                        45: [], 46: [], 47: [], 48: [], 49: [], 50: []};
+        gameState.that.input._dragState = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+
+        gameState.that.input.pointer11 = gameState.that.input.manager.pointers[11];
+        gameState.that.input.pointer12 = gameState.that.input.manager.pointers[12];
+        gameState.that.input.pointer13 = gameState.that.input.manager.pointers[13];
+        gameState.that.input.pointer14 = gameState.that.input.manager.pointers[14];
+        gameState.that.input.pointer15 = gameState.that.input.manager.pointers[15];
+        gameState.that.input.pointer16 = gameState.that.input.manager.pointers[16];
+        gameState.that.input.pointer17 = gameState.that.input.manager.pointers[17];
+        gameState.that.input.pointer18 = gameState.that.input.manager.pointers[18];
+        gameState.that.input.pointer19 = gameState.that.input.manager.pointers[19];
+        gameState.that.input.pointer20 = gameState.that.input.manager.pointers[20];
+        gameState.that.input.pointer21 = gameState.that.input.manager.pointers[21];
+        gameState.that.input.pointer22 = gameState.that.input.manager.pointers[22];
+        gameState.that.input.pointer23 = gameState.that.input.manager.pointers[23];
+        gameState.that.input.pointer24 = gameState.that.input.manager.pointers[24];
+        gameState.that.input.pointer25 = gameState.that.input.manager.pointers[25];
+        gameState.that.input.pointer26 = gameState.that.input.manager.pointers[26];
+        gameState.that.input.pointer27 = gameState.that.input.manager.pointers[27];
+        gameState.that.input.pointer28 = gameState.that.input.manager.pointers[28];
+        gameState.that.input.pointer29 = gameState.that.input.manager.pointers[29];
+        gameState.that.input.pointer30 = gameState.that.input.manager.pointers[30];
+        gameState.that.input.pointer31 = gameState.that.input.manager.pointers[31];
+        gameState.that.input.pointer32 = gameState.that.input.manager.pointers[32];
+        gameState.that.input.pointer33 = gameState.that.input.manager.pointers[33];
+        gameState.that.input.pointer34 = gameState.that.input.manager.pointers[34];
+        gameState.that.input.pointer35 = gameState.that.input.manager.pointers[35];
+        gameState.that.input.pointer36 = gameState.that.input.manager.pointers[36];
+        gameState.that.input.pointer37 = gameState.that.input.manager.pointers[37];
+        gameState.that.input.pointer38 = gameState.that.input.manager.pointers[38];
+        gameState.that.input.pointer39 = gameState.that.input.manager.pointers[39];
+        gameState.that.input.pointer40 = gameState.that.input.manager.pointers[40];
+        gameState.that.input.pointer41 = gameState.that.input.manager.pointers[41];
+        gameState.that.input.pointer42 = gameState.that.input.manager.pointers[42];
+        gameState.that.input.pointer43 = gameState.that.input.manager.pointers[43];
+        gameState.that.input.pointer44 = gameState.that.input.manager.pointers[44];
+        gameState.that.input.pointer45 = gameState.that.input.manager.pointers[45];
+        gameState.that.input.pointer46 = gameState.that.input.manager.pointers[46];
+        gameState.that.input.pointer47 = gameState.that.input.manager.pointers[47];
+        gameState.that.input.pointer48 = gameState.that.input.manager.pointers[48];
+        gameState.that.input.pointer49 = gameState.that.input.manager.pointers[49];
+        gameState.that.input.pointer50 = gameState.that.input.manager.pointers[50];
     }
 
 
@@ -311,9 +372,9 @@ export default class UncoverGameWithScalingScene extends Phaser.Scene{
     
   startDrag(pointer,dragX,dragY){
     this.setDepth(90);
-    if(this.texture.key.includes('cover')||this.texture.key.includes('soil')){
-        coverSound.play();   
-    }
+    // if(this.texture.key.includes('cover')||this.texture.key.includes('soil')){
+    //     // coverSound.play();   
+    // }
 
     if(!(gameState.that.haveIntersection(this))){
         if(!this.hasPostPipeline) {
@@ -329,7 +390,7 @@ export default class UncoverGameWithScalingScene extends Phaser.Scene{
   stopDrag(){
     this.hasPostPipeline = false;
     gameState.that.removeOutline(this);
-    if(this.texture.key.includes('cover')||this.texture.key.includes('soil')){
+    if(gameState.that.haveIntersection(this) && (this.texture.key.includes('cover') || this.texture.key.includes('soil'))){
         this.setDepth(5)
     }
     if ((targets.includes(this.texture.key) ) && gameState.that.haveIntersection(this)){
@@ -562,6 +623,7 @@ export default class UncoverGameWithScalingScene extends Phaser.Scene{
                 alpha: 0.2,
                 ease: 'Sine.easeInOut'
             });
+            stone_destroy.play();
             setTimeout(() => {
                 this.destroy();
             }, 1000);
